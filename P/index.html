@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f7fa; /* Changed background color */
+            font-family: Arial, sans-serif;
+        }
+        #dice {
+            width: 100px;
+            height: 100px;
+        }
+        #rollButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff; /* Initial background color */
+            color: white;
+            border-radius: 5px;
+        }
+        #rollButton:hover {
+            background-color: #ff4081; /* Added hover color */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="dice" src="https://res.cloudinary.com/dx6kfgfal/image/upload/v1722272631/dice1_wrlwov.png" alt="Dice">
+        <button id="rollButton">Roll Dice</button>
+    </div>
+
+    <script>
+        const dice = document.getElementById('dice');
+        const button = document.getElementById('rollButton');
+        const diceImages = [
+            'https://res.cloudinary.com/dx6kfgfal/image/upload/v1722272631/dice1_wrlwov.png',
+            'https://res.cloudinary.com/dx6kfgfal/image/upload/v1722272645/dice2_ibfgqm.png',
+            'https://res.cloudinary.com/dx6kfgfal/image/upload/v1722272660/dice3_sjrc4m.png',
+            'https://res.cloudinary.com/dx6kfgfal/image/upload/v1722272677/dice4_mvrcgc.png',
+            'https://res.cloudinary.com/dx6kfgfal/image/upload/v1722272617/dice5_nt4z4r.png',
+            'https://res.cloudinary.com/dx6kfgfal/image/upload/v1722272603/dice6_fjwmqz.png'
+        ];
+
+        button.addEventListener('click', () => {
+            let roll = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * 6);
+                dice.src = diceImages[randomIndex];
+            }, 100);
+
+            setTimeout(() => {
+                clearInterval(roll);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
